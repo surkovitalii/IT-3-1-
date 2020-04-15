@@ -8,6 +8,15 @@ namespace ConsoleApp6
         string GetName();
 
     }
+    
+    interface IShape
+    {
+        int perimetr();
+        string GetName();
+
+    }
+
+
     class Rectangle : IShape
     {
         int width;
