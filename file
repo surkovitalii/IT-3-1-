@@ -12,13 +12,13 @@ namespace ConsoleApp6
     {
         int width;
         int length;
-        string name = "Rectangle : ";
+        string name = "Rectangle :";
 
         public Rectangle(int width, int length)
         {
             this.width = width;
             this.length = length;/////класс паралелограм я не створював ,так як його периметр шукається так же само 
-                                /////як і периметр звичайного прямокутника 
+                                /////як і периметр звичайного прямокутника. 
         }
         public string GetName()
         {
@@ -37,7 +37,7 @@ namespace ConsoleApp6
         int FirstSide;
         int SecondSide;
         int ThirdSide;
-        string name = "Triangle : ";
+        string name = "Triangle :";
         public Triangle(int FirstSide, int SecondSide, int ThirdSide)
         {
             this.FirstSide = FirstSide;
@@ -64,7 +64,7 @@ namespace ConsoleApp6
         int SSide;
         int TSide;
         int FoSide;
-        string name = "Trapeze : ";
+        string name = "Trapeze :";
         public Trapeze(int Fside, int SSide, int TSide, int FoSide)
         {
             this.FSide = Fside;
