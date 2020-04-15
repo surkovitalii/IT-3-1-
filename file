@@ -1,0 +1,119 @@
+using System;
+using System.Linq;
+namespace ConsoleApp6
+{
+    interface IShape
+    {
+        int perimetr();
+        string GetName();
+
+    }
+    class Rectangle : IShape
+    {
+        int width;
+        int length;
+        string name = "Rectangle : ";
+
+        public Rectangle(int width, int length)
+        {
+            this.width = width;
+            this.length = length;/////класс паралелограм я не створював ,так як його периметр шукається так же само 
+                                /////як і периметр звичайного прямокутника 
+        }
+        public string GetName()
+        {
+            return name; 
+
+        }
+        
+
+        public int perimetr()
+        {
+            return 2 * (width + length);
+        }
+    }
+    class Triangle : IShape
+    {
+        int FirstSide;
+        int SecondSide;
+        int ThirdSide;
+        string name = "Triangle : ";
+        public Triangle(int FirstSide, int SecondSide, int ThirdSide)
+        {
+            this.FirstSide = FirstSide;
+            this.SecondSide = SecondSide;
+            this.ThirdSide = ThirdSide;
+        }
+
+       public string GetName()
+        {
+            return name;
+        }
+       
+       
+
+        public int perimetr()
+        {
+            return FirstSide + SecondSide + ThirdSide;
+
+        }
+    }
+    class Trapeze : IShape
+    {
+        int FSide;
+        int SSide;
+        int TSide;
+        int FoSide;
+        string name = "Trapeze : ";
+        public Trapeze(int Fside, int SSide, int TSide, int FoSide)
+        {
+            this.FSide = Fside;
+            this.SSide = SSide;
+            this.TSide = TSide;
+            this.FoSide = FoSide;
+        }
+        public string GetName()
+        {
+            return name; 
+        }
+        
+
+        public int perimetr()
+        {
+            return FSide + SSide + TSide + FoSide;
+
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Trapeze g = new Trapeze(6, 5, 6, 4);
+            Rectangle a = new Rectangle(1, 3);
+            Triangle b = new Triangle(1, 2, 3);
+            Trapeze c = new Trapeze(1, 2, 3, 4);
+            Rectangle d = new Rectangle(1, 5);
+            Trapeze e = new Trapeze(1, 2, 3, 4);
+            Triangle f = new Triangle(1, 2, 5);
+            IShape[] arr = { g, b,c,d,e,a };
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i].GetName());
+                Console.WriteLine(arr[i].perimetr());
+            }
+             arr = arr.OrderBy(i => i.perimetr()).ToArray();
+
+            Console.WriteLine("Sorted array by perimetr :  ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine(arr[i].GetName());
+                Console.WriteLine(arr[i].perimetr());
+            }
+            Console.WriteLine("Two the most smallest perimetrs : ");
+            Console.WriteLine(arr[0].GetName());
+            Console.WriteLine(arr[0].perimetr());
+            Console.WriteLine(arr[1].GetName());
+            Console.WriteLine(arr[1].perimetr());
+        }
+    }
+}
